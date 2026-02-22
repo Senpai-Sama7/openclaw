@@ -97,7 +97,7 @@ git status
 git diff --stat
 
 # 4. What did other agents do recently?
-cat workspace/memory/build-log-2026-02-22.md
+cat workspace/memory/build-log-$(date +%Y-%m-%d).md 2>/dev/null || echo "No log for today yet"
 ```
 
 ### Deep Audit (2 minutes)
@@ -147,6 +147,7 @@ cat workspace/.openclaw/workspace-state.json
 2. **Read your execution guide** if one exists:
    - Codex agents: `codex_openclaw_execution_guide.md`
    - Kimi agents: `kimi_openclaw_execution_guide.md`
+   - Kiro agents: `KIRO.md` (prompting, planning & task guide)
    - Other agents: Use the master guide directly
 3. **Check dependencies** — see merge order below. Don't start Part 2 if Part 1 isn't done.
 4. **Switch to your branch:** `git checkout [your-branch]`
@@ -154,7 +155,7 @@ cat workspace/.openclaw/workspace-state.json
 ### While Working
 
 - **Commit often** with format: `[agent-name] Part N: short description`
-- **Append to build log** (`workspace/memory/build-log-2026-02-22.md`) with timestamped entries
+- **Append to build log** (`workspace/memory/build-log-YYYY-MM-DD.md` — use today's date) with timestamped entries
 - **Don't modify files owned by other agents** (see file ownership below)
 
 ### After Completing a Part
@@ -166,29 +167,44 @@ cat workspace/.openclaw/workspace-state.json
 
 ## Dependency & Merge Order
 
-Parts must be completed and merged in this order because later parts depend on earlier ones:
+Parts must be completed and merged in this order because later parts depend on earlier ones. Every assigned part is accounted for.
 
 ```
-Phase 1 — Foundation (no dependencies):
-  Parts 1, 4     → Cloud infra exists, config is validated
-  Merge: kiro/infra → main
+Phase 1 — Server Foundation (no dependencies):
+  Part 1  (Kiro)   Cloud infrastructure provisioned
+  Part 2  (Codex)  Server hardened
+  Part 3  (Codex)  OpenClaw installed & secured
+  Merge: kiro/infra (Part 1) → main, then codex/hardening (Parts 2-3) → main
 
-Phase 2 — Hardening (needs a server):
-  Parts 2, 3     → Server is secured, OpenClaw is installed
-  Merge: codex/hardening → main
+Phase 2 — Configuration (needs running OpenClaw):
+  Part 4  (Kiro)   openclaw.json validated & optimized
+  Part 5  (Kimi)   Workspace files populated (IDENTITY, SOUL, MEMORY)
+  Merge: kiro/infra (Part 4) → main, then kimi/skills (Part 5) → main
 
-Phase 3 — Agent Brain (needs running OpenClaw):
-  Parts 5, 8, 9  → Workspace populated, memory working, autonomy configured
+Phase 3 — Intelligence & Channels (needs configured OpenClaw):
+  Part 6  (Codex)  Model strategy optimized
+  Part 7  (Kiro)   Channels connected (Telegram, Discord)
+  Part 8  (Kimi)   Memory system configured
+  Merge: all three branches → main (coordinate with human)
+
+Phase 4 — Autonomy & Capabilities (needs working agent with memory):
+  Part 9  (Kimi)   Autonomy engine (heartbeat, cron, events)
+  Part 10 (Kimi)   Skills installed
+  Part 11 (Kimi)   Plugin hooks configured
+  Part 12 (Kimi)   Multi-agent architecture
   Merge: kimi/skills → main
 
-Phase 4 — Capabilities (needs working agent):
-  Parts 6, 7, 10, 11, 12 → Models optimized, channels connected, skills loaded, hooks active, multi-agent running
-  Merge: all branches → main (coordinate with human)
-
-Phase 5 — Polish (needs everything above):
-  Parts 13, 14, 15, 16, 17, 18 → Remote access, monitoring, maintenance, revenue, kill switch, edge cases
+Phase 5 — Polish & Hardening (needs everything above):
+  Part 13 (Kiro)   Tailscale remote access
+  Part 14 (Codex)  Cost control & monitoring
+  Part 15 (Kiro)   Maintenance runbook
+  Part 16 (Kiro)   Money-making configurations
+  Part 17 (Codex)  Kill switch & incident response
+  Part 18 (Codex)  Edge cases & gotchas (final audit)
   Merge: remaining branches → main
 ```
+
+**Dependency rules:** No part in Phase N may begin until all parts in Phase N-1 are merged to `main`. Within a phase, parts may execute in parallel if they don't share file ownership. Part 18 must be last.
 
 **If you're blocked** because a prerequisite part isn't done: skip to your next non-blocked part, note the block in the build log, and move on.
 
@@ -368,6 +384,7 @@ Two agent-specific execution guides exist that map every master guide task to sp
 
 - `codex_openclaw_execution_guide.md` — For Codex CLI. Includes recommended profiles (`openclaw-build`, `openclaw-audit`, `openclaw-yolo`), agent roles (reviewer, planner, hardener, explorer), and exact commands per part.
 - `kimi_openclaw_execution_guide.md` — For Kimi CLI. Maps tasks to specific MCP servers (choreographer, omega, filesystem, memory, sqlite, puppeteer, playwright, etc.) and skills (`/skill:security-engineering`, `/skill:architecture-design`, etc.).
+- `KIRO.md` — For Kiro CLI. Maps all 3 agents' real capabilities to build tasks, with exact prompts and tool/MCP recommendations per part.
 
 If you're an agent without a dedicated execution guide, use the master guide (`building_super_openclaw.md`) directly. The parts are self-contained with exact commands and configs.
 

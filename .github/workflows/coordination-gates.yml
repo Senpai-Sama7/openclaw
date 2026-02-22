@@ -1,0 +1,72 @@
+name: coordination-gates
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ownership:
+    name: ownership
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python scripts/validate_owners.py
+
+  phase-order:
+    name: phase-order
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/validate_phase_order.py
+
+  log-convention:
+    name: log-convention
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject hard-coded build-log dates in docs
+        run: |
+          if grep -rn 'build-log-20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]' \
+            AGENTS.md AGENTS-COORDINATION.md BUILD-STATUS.md 2>/dev/null; then
+            echo "❌ Hard-coded build-log date found in coordination docs."
+            echo "Use build-log-YYYY-MM-DD or \$(date +%Y-%m-%d) instead."
+            exit 1
+          fi
+          echo "✅ No hard-coded build-log dates in coordination docs."
+
+  docs-consistency:
+    name: docs-consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check phase ordering consistency
+        run: |
+          extract() { sed -n '/^Phase 1/,/^```$/p' "$1" | head -30; }
+          A=$(extract AGENTS.md)
+          B=$(extract AGENTS-COORDINATION.md)
+          if [ "$A" != "$B" ]; then
+            echo "❌ Phase ordering blocks differ between AGENTS.md and AGENTS-COORDINATION.md"
+            diff <(echo "$A") <(echo "$B") || true
+            exit 1
+          fi
+          echo "✅ Phase ordering is consistent."
+      - name: Check Kiro guide references
+        run: |
+          for f in AGENTS.md AGENTS-COORDINATION.md; do
+            if ! grep -q 'KIRO.md' "$f"; then
+              echo "❌ $f missing KIRO.md reference"
+              exit 1
+            fi
+          done
+          echo "✅ KIRO.md referenced in both files."

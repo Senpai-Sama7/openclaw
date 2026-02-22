@@ -1,0 +1,20 @@
+# CODEOWNERS — OpenClaw Multi-Agent Build
+# Single-approver model (personal repo). All paths require owner review.
+
+# Default: repo owner approves everything
+* @Senpai-Sama7
+
+# Governance & coordination docs
+/AGENTS.md @Senpai-Sama7
+/AGENTS-COORDINATION.md @Senpai-Sama7
+/BUILD-STATUS.md @Senpai-Sama7
+/KIRO.md @Senpai-Sama7
+/PART-DOD.md @Senpai-Sama7
+/openclaw.policy.json5 @Senpai-Sama7
+
+# CI & scripts
+/.github/ @Senpai-Sama7
+/scripts/ @Senpai-Sama7
+
+# Workspace (Kimi lane)
+/workspace/ @Senpai-Sama7

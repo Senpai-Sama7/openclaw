@@ -1,0 +1,36 @@
+// openclaw.policy.json5 — Tracked governance mirror of openclaw.json structure
+// This file defines the SHAPE and OWNERSHIP of openclaw.json sections.
+// It contains NO secrets. openclaw.json itself remains gitignored.
+{
+  // Kiro owns
+  "gateway": { "_owner": "kiro", "port": 18789, "bind": "127.0.0.1" },
+  "channels": { "_owner": "kiro", "whatsapp": {}, "telegram": {}, "discord": {} },
+  "tools": { "_owner": "kiro" },
+  "plugins": { "_owner": "kiro" },
+  "messages": { "_owner": "kiro" },
+  "commands": { "_owner": "kiro" },
+  "diagnostics": { "_owner": "kiro" },
+  "update": { "_owner": "kiro" },
+  "env": { "_owner": "kiro" },
+  "meta": { "_owner": "kiro" },
+
+  // Codex owns
+  "agents": {
+    "defaults": {
+      "model": { "_owner": "codex" },
+      "models": { "_owner": "codex" },
+      "workspace": { "_owner": "kimi" },
+      "contextPruning": { "_owner": "kimi" },
+      "compaction": { "_owner": "kimi" },
+      "heartbeat": { "_owner": "kimi" },
+      "subagents": { "_owner": "kimi" },
+      "memorySearch": { "_owner": "kimi" }
+    },
+    "named": { "_owner": "kimi" }
+  },
+
+  // Kimi owns
+  "hooks": { "_owner": "kimi" },
+  "cron": { "_owner": "kimi" },
+  "skills": { "_owner": "kimi" }
+}

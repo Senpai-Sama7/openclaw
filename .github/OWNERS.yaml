@@ -1,0 +1,32 @@
+# OWNERS.yaml — Branch-level path ownership for CI validation
+# Used by scripts/validate_owners.py to enforce file boundaries per agent branch.
+
+lanes:
+  codex/hardening:
+    - "server/**"
+    - "systemd/**"
+    - "firewall/**"
+    - "kill-switch*"
+    - "security/**"
+    - "agents/main/agent/models.json"
+  kimi/skills:
+    - "workspace/SOUL.md"
+    - "workspace/IDENTITY.md"
+    - "workspace/USER.md"
+    - "workspace/AGENTS.md"
+    - "workspace/OBSERVER.md"
+    - "workspace/TOOLS.md"
+    - "workspace/HEARTBEAT.md"
+    - "workspace/AUTONOMY.md"
+    - "workspace/skills/**"
+    - "cron/**"
+  kiro/infra:
+    - "cloud/**"
+    - "tailscale/**"
+    - "canvas/**"
+    - "MAINTENANCE.md"
+
+shared:
+  - "BUILD-STATUS.md"
+  - "workspace/memory/build-log-*.md"
+  - "AGENTS.md"

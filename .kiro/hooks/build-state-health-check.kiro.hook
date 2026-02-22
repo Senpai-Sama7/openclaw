@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Build State Health Check",
+  "description": "Runs periodic comprehensive audit of build state, dependency satisfaction, and agent coordination",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Run full build health check: 1) Check BUILD-STATUS.md for completed vs pending parts. 2) Verify dependency graph - are any agents blocked waiting for prerequisites? 3) Check git branch status - any uncommitted work or merge conflicts? 4) Verify openclaw.json is valid JSON. 5) Check for secrets in git history. 6) Verify workspace files match expected state. 7) Check if OpenClaw is running. Provide comprehensive status report with recommendations."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "Build File Ownership Guard",
+  "description": "Verifies that file modifications respect agent ownership boundaries defined in AGENTS-COORDINATION.md to prevent merge conflicts",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "openclaw.json",
+      "workspace/*.md",
+      "*.sh",
+      "BUILD-STATUS.md"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Check if this file modification respects the agent ownership rules in AGENTS-COORDINATION.md. Verify: 1) Is the current agent allowed to modify this file/path? 2) If openclaw.json, is only the agent's assigned JSON path being modified? 3) Should this be flagged as a cross-agent conflict? Report any violations."
+  }
+}

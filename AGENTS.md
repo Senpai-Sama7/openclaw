@@ -53,7 +53,7 @@ Three CLI coding agents work in parallel, each on its own git branch, each ownin
 | Agent | Branch | Parts | Role |
 |-------|--------|-------|------|
 | **Kiro** (v1.26.2) | `kiro/infra` | 1, 4, 7, 13, 15, 16 | **Orchestrator** — directs all agents, builds infra/config/channels |
-| **Codex** (v0.47.0) | `codex/hardening` | 2, 3, 6, 14, 17, 18 | Security, hardening, cost control, kill switch |
+| **Codex** (v0.104.0) | `codex/hardening` | 2, 3, 6, 14, 17, 18 | Security, hardening, cost control, kill switch |
 | **Kimi** (v1.12.0) | `kimi/skills` | 5, 8, 9, 10, 11, 12 | Workspace files, memory, autonomy, skills, hooks, multi-agent |
 
 ### Orchestration Model

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Build Dependency Enforcer",
+  "description": "Prevents agents from starting work on parts whose prerequisite parts haven't been completed and merged",
+  "version": "1",
+  "when": {
+    "type": "preTaskExecution"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Before starting this task, verify dependencies: 1) Check which build part is about to be worked on. 2) Consult AGENTS-COORDINATION.md dependency graph. 3) Verify all prerequisite parts are marked ✅ in BUILD-STATUS.md AND merged to main. 4) If dependencies not met, BLOCK the work and explain what needs to complete first. 5) If dependencies met, approve and note which phase this belongs to."
+  }
+}

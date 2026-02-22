@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Build Commit Validator",
+  "description": "Validates git commits follow the build protocol: proper format, correct branch, no secrets, build log updated",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "If the user just committed changes, verify: 1) Commit message follows '[agent] Part N: description' format. 2) Commit is on the correct agent branch (not main). 3) No secrets in the diff (check for token, apikey, password patterns). 4) BUILD-STATUS.md was updated if a part was completed. 5) Build log has timestamped entry. Report any violations."
+  }
+}

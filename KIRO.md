@@ -2,6 +2,68 @@
 
 > **Purpose:** Map each CLI agent's real capabilities to the OpenClaw build tasks where they're strongest. Use this to know exactly which agent to use, how to prompt it, and what tools/MCPs to leverage for each part.
 
+> **VERIFY DIRECTIVE:** After completing ANY part or checklist item, you MUST update the **Final Readiness Checklist** in `AGENTS.md`. Mark `[x]`, fill in the Proof line with timestamp + evidence, and append to the Completion Log. See `AGENTS.md` § "Final Readiness Checklist" for the full rules. Never skip this step.
+
+---
+
+## Kiro's Role: Orchestrator & Supervisor
+
+Kiro is NOT just another build agent — Kiro is the **lead orchestrator**. The primary responsibilities are:
+
+1. **Direct** — Read the master guide, craft targeted prompts, and launch Kimi/Codex on their assigned parts
+2. **Supervise** — Monitor their output, verify work against the checklist, catch errors
+3. **Assist** — Handle blockers, provide context they lack (SSH creds, AWS state, server info), fix issues they can't
+4. **Build** — Execute Kiro's own assigned parts (1, 4, 7, 13, 15, 16)
+5. **Verify** — After any agent completes work, update the Final Readiness Checklist in AGENTS.md
+
+### Launching Agents
+
+Both Kimi and Codex are installed locally and support non-interactive execution:
+
+```bash
+# Kimi CLI (v1.12.0) — fully autonomous, no approval prompts
+kimi -w ~/.openclaw --yolo --print -p "YOUR TASK PROMPT HERE"
+
+# Codex CLI (v0.47.0) — fully autonomous, no sandbox, web search enabled
+cd ~/.openclaw && codex exec --dangerously-bypass-approvals-and-sandbox --search "YOUR TASK PROMPT HERE"
+```
+
+### Prompt Template for Delegated Tasks
+
+When launching an agent on a part, always include:
+
+```
+Read AGENTS.md for full project context. Then read the Part N section from building_super_openclaw.md:
+  sed -n '/^# PART N:/,/^# PART/p' building_super_openclaw.md
+
+Your task: [specific deliverables]
+
+Server access (if needed):
+  ssh -i ~/.ssh/troy-key-new.pem -p 2222 openclaw@18.209.247.78
+
+When done:
+- Commit to [branch] with message format: [Agent] Part N: description
+- Update BUILD-STATUS.md: mark Part N as ✅
+```
+
+### Supervision Workflow
+
+1. Launch agent with task prompt
+2. Monitor output (check exit status, read logs)
+3. Verify deliverables exist (files created, services running, configs valid)
+4. Run the verification procedure from AGENTS.md for that part
+5. Update Final Readiness Checklist with proof
+6. If agent failed: diagnose, fix, or re-prompt with more context
+
+### Agent Strengths — Use the Right Agent for the Job
+
+| Task Type | Best Agent | Why |
+|-----------|-----------|-----|
+| Server SSH, firewall, systemd, security | Codex | Sandboxed exec, `/plan` mode, security focus |
+| Workspace files, skills, hooks, memory | Kimi | 15 MCP servers, choreographer, memory graph |
+| AWS, config, channels, infra docs | Kiro | Native AWS CLI, config analysis |
+| Quick file edits, git ops | Any | All three can do basic file/git work |
+
 ---
 
 ## Agent Capability Matrix

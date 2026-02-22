@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Build Part Completion Audit",
+  "description": "When a build part is marked complete, runs the verification procedure for that part to ensure it actually passes all checks",
+  "version": "1",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A build task was just completed. Check: 1) Read BUILD-STATUS.md to see which part was marked done. 2) Run the verification procedure for that part from AGENTS.md. 3) Verify all checks pass. 4) Confirm the build log was updated with completion entry. 5) Check if dependencies for next phase are now met. Report full audit results."
+  }
+}

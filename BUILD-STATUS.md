@@ -40,8 +40,8 @@ Kiro has AWS CLI integration, infrastructure expertise, and config analysis. Bes
 
 | Part | Task | Status | Notes |
 |------|------|--------|-------|
-| 1 | Cloud Infrastructure (OCI/Hetzner provisioning) | ⬜ | |
-| 4 | Complete Configuration (openclaw.json validation) | ⬜ | Validate against docs |
+| 1 | Cloud Infrastructure (AWS EC2 provisioning) | ✅ | EC2 i-0c504a4f15d130993, t4g.small ARM, 18.209.247.78, Ubuntu 24.04, 30GB gp3 encrypted |
+| 4 | Complete Configuration (openclaw.json validation) | ✅ | Audited 14 present/12 gaps, applied 4 Kiro-owned fixes, deferred 8 to Codex/Kimi |
 | 7 | Channel Setup (Telegram, Discord, WhatsApp) | ⬜ | WhatsApp already connected |
 | 13 | Remote Access with Tailscale | ⬜ | |
 | 15 | Maintenance Runbook | ⬜ | |
@@ -62,7 +62,7 @@ Kiro has AWS CLI integration, infrastructure expertise, and config analysis. Bes
 - **Total parts:** 18 (Part 0-18, Part 0 is reference only)
 - **Codex:** 0/6 complete
 - **Kimi:** 0/6 complete
-- **Kiro:** 0/6 complete
+- **Kiro:** 2/6 complete
 
 ## How to Update
 

@@ -21,17 +21,11 @@ Kiro is NOT just another build agent — Kiro is the **lead orchestrator**. The 
 Both Kimi and Codex are installed locally and support non-interactive execution:
 
 ```bash
-# Kimi CLI (v1.12.0) — non-interactive print mode
-kimi -w ~/.openclaw --print -p "YOUR TASK PROMPT HERE"
+# Kimi CLI (v1.12.0) — fully autonomous, no approval prompts
+kimi -w ~/.openclaw --yolo --print -p "YOUR TASK PROMPT HERE"
 
-# Kimi — interactive (for complex multi-step work)
-kimi -w ~/.openclaw -p "YOUR TASK PROMPT HERE"
-
-# Codex CLI (v0.47.0) — non-interactive exec mode
-codex exec --full-auto "YOUR TASK PROMPT HERE"
-
-# Codex — with explicit working directory
-cd ~/.openclaw && codex exec --full-auto "YOUR TASK PROMPT HERE"
+# Codex CLI (v0.47.0) — fully autonomous, no sandbox, web search enabled
+cd ~/.openclaw && codex exec --dangerously-bypass-approvals-and-sandbox --search "YOUR TASK PROMPT HERE"
 ```
 
 ### Prompt Template for Delegated Tasks

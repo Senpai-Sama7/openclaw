@@ -61,11 +61,11 @@ Three CLI coding agents work in parallel, each on its own git branch, each ownin
 Kiro is the **lead orchestrator** — it launches, supervises, and verifies work done by Kimi and Codex. The other agents do not self-direct; Kiro reads the master guide, crafts task prompts, launches them via their CLI exec modes, monitors output, and verifies results against the Final Readiness Checklist.
 
 ```bash
-# Launch Kimi (non-interactive)
-kimi -w ~/.openclaw --print -p "TASK PROMPT"
+# Launch Kimi (fully autonomous, no approval prompts)
+kimi -w ~/.openclaw --yolo --print -p "TASK PROMPT"
 
-# Launch Codex (non-interactive, sandboxed)
-cd ~/.openclaw && codex exec --full-auto "TASK PROMPT"
+# Launch Codex (fully autonomous, no sandbox, web search enabled)
+cd ~/.openclaw && codex exec --dangerously-bypass-approvals-and-sandbox --search "TASK PROMPT"
 ```
 
 See `KIRO.md` for full orchestration procedures, prompt templates, and supervision workflow.

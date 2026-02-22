@@ -1,0 +1,37 @@
+# Credentials & secrets
+credentials/
+.env
+agents/main/agent/auth.json
+agents/main/agent/auth-profiles.json
+openclaw.json
+openclaw.json.bak
+
+# WhatsApp session data
+credentials/whatsapp/
+
+# Logs & runtime
+logs/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# Device identity
+identity/
+devices/
+
+# Sessions
+agents/main/sessions/
+
+# Node/build
+node_modules/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Update state
+update-check.json

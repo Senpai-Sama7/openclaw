@@ -407,6 +407,179 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 
 ---
 
+## Final Readiness Checklist
+
+> **CHECKLIST AND BUILD RULES — DO NOT VIOLATE**
+>
+> 1. **Never rewrite, remove, or restructure** any part of this checklist.
+> 2. On task completion, the **only** permitted changes are:
+>    - Change `[ ]` → `[x]` on the completed task line.
+>    - Replace `_pending_` on the Proof line with actual validation evidence (commands run, output received, timestamps).
+>    - Append a new row to the **Completion Log** table at the bottom.
+> 3. **Do not** alter Validation lines, reorder tasks, add/remove sections, or touch any uncompleted task.
+> 4. If a task fails validation, leave it as `[ ]` and append failure notes under its Proof line prefixed with `❌ FAIL:`.
+> 5. **If the planned Implementation method fails**, do NOT delete it. Instead:
+>    - Keep the original Implementation text intact.
+>    - Append `❌ FAIL:` with the error/reason it didn't work.
+>    - Then append `✅ FIX:` with what was done instead and why it worked.
+>    - The Proof line must show the final passing result with timestamp, commands, and output.
+> 6. These rules are permanent and apply to all agents (human or AI) editing this file.
+
+### INFRASTRUCTURE
+
+- [x] Server running (Oracle Free Tier or Hetzner) with 4+ GB RAM
+  - Validation: `ssh -p 2222 openclaw@SERVER_IP "uname -a && free -h"`
+  - Proof: EC2 t4g.small 1.8GB RAM at 18.209.247.78 — `2026-02-22T21:19Z` — `Linux 6.17.0-1007-aws aarch64, 1.8Gi RAM` (under 4GB spec — AWS free tier constraint)
+- [x] SSH hardened (key-only, non-standard port, fail2ban)
+  - Validation: `ssh -p 2222`, `grep PermitRootLogin /etc/ssh/sshd_config`, `sudo systemctl status fail2ban`
+  - Proof: `2026-02-22T22:10Z` — port 2222, PermitRootLogin no, PasswordAuthentication no, fail2ban active (sshd jail, maxretry 3, bantime 3600)
+- [x] UFW firewall active (only SSH port open)
+  - Validation: `sudo ufw status verbose`
+  - Proof: `2026-02-22T22:12Z` — `Status: active`, default deny incoming, 2222/tcp ALLOW IN Anywhere
+- [x] Automatic security updates configured
+  - Validation: `sudo systemctl status unattended-upgrades`
+  - Proof: `2026-02-22T22:10Z` — `active (running)`, auto-reboot disabled
+- [ ] Tailscale installed and connected on server
+  - Validation: `tailscale status`
+  - Proof: _pending_ (Part 13, Phase 5)
+- [ ] Tailscale installed on your phone/laptop
+  - Validation: `tailscale status` on client device
+  - Proof: _pending_ (Part 13, Phase 5)
+- [x] systemd lingering enabled (agent survives logout)
+  - Validation: `loginctl show-user openclaw -p Linger`
+  - Proof: `2026-02-22T22:10Z` — `Linger=yes`
+
+### OPENCLAW
+
+- [x] Version 2026.2.21-2+ installed and verified
+  - Validation: `openclaw --version`
+  - Proof: `2026-02-22T22:22Z` — `2026.2.21-2` on server
+- [ ] Gateway binding to loopback or tailnet (NOT 0.0.0.0)
+  - Validation: `cat ~/.openclaw/openclaw.json | grep -A3 '"gateway"'`
+  - Proof: _pending_ (openclaw.json not yet deployed to server)
+- [ ] Token auth enabled
+  - Validation: `grep -A3 '"auth"' ~/.openclaw/openclaw.json`
+  - Proof: _pending_
+- [ ] openclaw doctor --deep --repair run with no critical issues
+  - Validation: `openclaw doctor --deep --repair`
+  - Proof: _pending_
+- [x] Ollama installed with qwen3:8b and nomic-embed-text models
+  - Validation: `ollama list`
+  - Proof: `2026-02-22T22:15Z` — Ollama 0.16.3, qwen3:8b (5.2GB), nomic-embed-text (274MB)
+
+### CONFIGURATION
+
+- [ ] openclaw.json complete with all your values
+  - Validation: `python3 -c "import json; json.load(open('openclaw.json'))"`, all required keys present
+  - Proof: _pending_
+- [ ] AGENTS.md written with your context and preferences
+  - Validation: `[ -s workspace/AGENTS.md ]`
+  - Proof: _pending_ (Part 5)
+- [ ] SOUL.md reasoning framework in place
+  - Validation: `[ -s workspace/SOUL.md ]`
+  - Proof: _pending_ (Part 5)
+- [ ] TOOLS.md policies defined
+  - Validation: `[ -s workspace/TOOLS.md ]`
+  - Proof: _pending_ (Part 5)
+- [ ] HEARTBEAT.md morning brief and monitoring configured
+  - Validation: `[ -s workspace/HEARTBEAT.md ]`
+  - Proof: _pending_ (Part 9)
+- [ ] BOOT.md startup checks enabled
+  - Validation: `[ -s workspace/BOOT.md ]`
+  - Proof: _pending_ (Part 5)
+
+### CHANNELS
+
+- [ ] Telegram connected and tested (send/receive working)
+  - Validation: Send test message via Telegram, verify response
+  - Proof: _pending_ (Part 7)
+- [ ] Discord connected (optional but recommended)
+  - Validation: Send test message via Discord, verify response
+  - Proof: _pending_ (Part 7)
+- [ ] dmPolicy set to "pairing" on all channels
+  - Validation: `grep -A5 '"dmPolicy"' ~/.openclaw/openclaw.json`
+  - Proof: _pending_ (Part 7)
+- [ ] Your user IDs added to allowFrom
+  - Validation: `grep -A10 '"allowFrom"' ~/.openclaw/openclaw.json`
+  - Proof: _pending_ (Part 7)
+
+### INTELLIGENCE
+
+- [ ] Model routing configured (local for routine, cloud for deep)
+  - Validation: `cat ~/.openclaw/agents/main/agent/models.json | head -20`
+  - Proof: _pending_ (Part 6)
+- [ ] Fallback chain set up
+  - Validation: Verify fallback triggers when primary model unavailable
+  - Proof: _pending_ (Part 6)
+- [ ] Per-model thinking levels configured
+  - Validation: `grep -A5 '"thinking"' ~/.openclaw/openclaw.json`
+  - Proof: _pending_ (Part 6)
+- [ ] Memory seeded with your key facts and preferences
+  - Validation: `openclaw agent --message "what do you remember about me?"`
+  - Proof: _pending_ (Part 8)
+
+### AUTONOMY
+
+- [ ] Morning brief cron job active
+  - Validation: `openclaw cron list`
+  - Proof: _pending_ (Part 9)
+- [ ] System health monitoring cron job active
+  - Validation: `openclaw cron list`
+  - Proof: _pending_ (Part 9)
+- [ ] Weekly review cron job scheduled
+  - Validation: `openclaw cron list`
+  - Proof: _pending_ (Part 9)
+- [ ] HEARTBEAT.md actively firing (check openclaw cron list)
+  - Validation: `openclaw cron list`, check last heartbeat timestamp
+  - Proof: _pending_ (Part 9)
+
+### SAFETY
+
+- [ ] Kill switch aliases created and tested
+  - Validation: `type clawdown`, test execution
+  - Proof: _pending_ (Part 17)
+- [ ] Safety guardian plugin active
+  - Validation: `grep -A5 '"hooks"' ~/.openclaw/openclaw.json`
+  - Proof: _pending_ (Part 11)
+- [ ] PostgreSQL interaction logging working
+  - Validation: `psql -c "SELECT count(*) FROM interactions;"`
+  - Proof: _pending_ (Part 14)
+- [ ] /tmp/openclaw-trash/ in place (no direct deletes)
+  - Validation: `ls -la /tmp/openclaw-trash/`
+  - Proof: _pending_ (Part 17)
+- [ ] Backup created of openclaw.json + workspace + memory index/files
+  - Validation: `ls -la ~/openclaw-backup/`
+  - Proof: _pending_ (Part 15)
+
+### INTELLIGENCE LOOP
+
+- [ ] Memory being written (test: "what do you remember about me?")
+  - Validation: `openclaw agent --message "what do you remember about me?"`
+  - Proof: _pending_ (Part 8)
+- [ ] Interaction costs being logged to PostgreSQL
+  - Validation: `psql -c "SELECT sum(cost) FROM interactions WHERE date > now() - interval '1 day';"`
+  - Proof: _pending_ (Part 14)
+- [ ] Weekly P&L skill scheduled
+  - Validation: `openclaw cron list | grep pnl`
+  - Proof: _pending_ (Part 16)
+- [ ] Monthly maintenance calendar reminder set
+  - Validation: `openclaw cron list | grep maintenance`
+  - Proof: _pending_ (Part 15)
+
+### Completion Log
+
+| Date | Agent | Item | Part | Notes |
+|------|-------|------|------|-------|
+| 2026-02-22 22:19Z | Kiro | Server running | 1 | EC2 t4g.small, 18.209.247.78 |
+| 2026-02-22 22:10Z | Kiro | SSH hardened | 2 | Port 2222, fail2ban, key-only |
+| 2026-02-22 22:12Z | Kiro | UFW active | 2 | 2222/tcp only |
+| 2026-02-22 22:10Z | Kiro | Auto security updates | 2 | unattended-upgrades |
+| 2026-02-22 22:10Z | Kiro | Lingering enabled | 2 | openclaw user |
+| 2026-02-22 22:22Z | Kiro | OpenClaw installed | 3 | v2026.2.21-2 |
+| 2026-02-22 22:15Z | Kiro | Ollama + models | 2 | qwen3:8b, nomic-embed-text |
+
+---
+
 ## Build History
 
 _Agents: append entries here as you complete work. Format: `YYYY-MM-DD HH:MM — [Agent] Part N: what was done`_

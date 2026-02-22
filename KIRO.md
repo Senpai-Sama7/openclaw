@@ -2,6 +2,8 @@
 
 > **Purpose:** Map each CLI agent's real capabilities to the OpenClaw build tasks where they're strongest. Use this to know exactly which agent to use, how to prompt it, and what tools/MCPs to leverage for each part.
 
+> **VERIFY DIRECTIVE:** After completing ANY part or checklist item, you MUST update the **Final Readiness Checklist** in `AGENTS.md`. Mark `[x]`, fill in the Proof line with timestamp + evidence, and append to the Completion Log. See `AGENTS.md` § "Final Readiness Checklist" for the full rules. Never skip this step.
+
 ---
 
 ## Agent Capability Matrix

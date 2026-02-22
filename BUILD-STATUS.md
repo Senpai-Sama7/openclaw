@@ -13,7 +13,7 @@ Codex has sandboxed execution, `/plan` mode for propose-then-execute, and built-
 | Part | Task | Status | Notes |
 |------|------|--------|-------|
 | 2 | Server Hardening (SSH, firewall, fail2ban, unattended-upgrades) | ✅ | SSH port 2222, root/password disabled, UFW, fail2ban, lingering, Node 22, Docker, Ollama |
-| 3 | OpenClaw Installation & Security (npm, systemd, token rotation) | ⬜ | |
+| 3 | OpenClaw Installation & Security (npm, systemd, token rotation) | ✅ | v2026.2.21-2 installed, systemd user service created, dir structure ready |
 | 6 | Model Strategy & Intelligence Maximization | ⬜ | Config + cost analysis |
 | 14 | Cost Control & Monitoring | ⬜ | |
 | 17 | Kill Switch & Incident Response | ⬜ | Security-critical |
@@ -60,7 +60,7 @@ Kiro has AWS CLI integration, infrastructure expertise, and config analysis. Bes
 ## Progress
 
 - **Total parts:** 18 (Part 0-18, Part 0 is reference only)
-- **Codex:** 1/6 complete
+- **Codex:** 2/6 complete
 - **Kimi:** 0/6 complete
 - **Kiro:** 2/6 complete
 

@@ -26,7 +26,7 @@ Kimi has 15 MCP servers, 43 skills, choreographer for workflow orchestration, an
 
 | Part | Task | Status | Notes |
 |------|------|--------|-------|
-| 5 | Workspace Files (SOUL, IDENTITY, MEMORY system) | ⬜ | Bootstrap completion |
+| 5 | Workspace Files (SOUL, IDENTITY, MEMORY system) | ✅ | AGENTS.md, SOUL.md, TOOLS.md, BOOT.md created on server, skills/ and logs/ directories ready |
 | 8 | Memory System & Retrieval | ⬜ | SQLite + workspace memory |
 | 9 | Autonomy Engine (heartbeat, cron, events) | ⬜ | |
 | 10 | Skills — Teaching Specialist Capabilities | ⬜ | Use `/skill:*` tools |
@@ -61,7 +61,7 @@ Kiro has AWS CLI integration, infrastructure expertise, and config analysis. Bes
 
 - **Total parts:** 18 (Part 0-18, Part 0 is reference only)
 - **Codex:** 2/6 complete
-- **Kimi:** 0/6 complete
+- **Kimi:** 1/6 complete
 - **Kiro:** 2/6 complete
 
 ## How to Update

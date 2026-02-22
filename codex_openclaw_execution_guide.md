@@ -1,6 +1,6 @@
 # 🦞🤖 CODEX CLI × OPENCLAW: EXECUTION PLAYBOOK
 ### Using Every Codex Feature, MCP Server, and Agent Role to Build Your OpenClaw Agent
-**Version: February 22, 2026 | Codex CLI v0.104.0 | OpenClaw v2026.2.21**
+**Version: February 22, 2026 | Codex CLI v0.104.0 | OpenClaw v2026.2.21-2**
 
 ---
 

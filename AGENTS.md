@@ -50,11 +50,25 @@ Three CLI coding agents work in parallel, each on its own git branch, each ownin
 
 ### Agent Assignments
 
-| Agent | Branch | Parts | Strengths |
-|-------|--------|-------|-----------|
-| **Codex** (v0.47.0) | `codex/hardening` | 2, 3, 6, 14, 17, 18 | Sandboxed execution, `/plan` mode, code review, security-focused agent roles |
-| **Kimi** (v1.12.0) | `kimi/skills` | 5, 8, 9, 10, 11, 12 | 15 MCP servers, 43 skills, choreographer, strongest tool ecosystem |
-| **Kiro** (v1.26.2) | `kiro/infra` | 1, 4, 7, 13, 15, 16 | AWS CLI, infrastructure expertise, config analysis |
+| Agent | Branch | Parts | Role |
+|-------|--------|-------|------|
+| **Kiro** (v1.26.2) | `kiro/infra` | 1, 4, 7, 13, 15, 16 | **Orchestrator** — directs all agents, builds infra/config/channels |
+| **Codex** (v0.47.0) | `codex/hardening` | 2, 3, 6, 14, 17, 18 | Security, hardening, cost control, kill switch |
+| **Kimi** (v1.12.0) | `kimi/skills` | 5, 8, 9, 10, 11, 12 | Workspace files, memory, autonomy, skills, hooks, multi-agent |
+
+### Orchestration Model
+
+Kiro is the **lead orchestrator** — it launches, supervises, and verifies work done by Kimi and Codex. The other agents do not self-direct; Kiro reads the master guide, crafts task prompts, launches them via their CLI exec modes, monitors output, and verifies results against the Final Readiness Checklist.
+
+```bash
+# Launch Kimi (non-interactive)
+kimi -w ~/.openclaw --print -p "TASK PROMPT"
+
+# Launch Codex (non-interactive, sandboxed)
+cd ~/.openclaw && codex exec --full-auto "TASK PROMPT"
+```
+
+See `KIRO.md` for full orchestration procedures, prompt templates, and supervision workflow.
 
 ### Why This Split
 

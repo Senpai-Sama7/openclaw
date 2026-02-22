@@ -67,7 +67,7 @@ filesystem, memory, sqlite, fetch, puppeteer, sequential-thinking, github, brave
 
 **Slash Commands:** `/plan`, `/review`, `/compact`, `/diff`, `/agent`, `/fork`, `/resume`, `/permissions`, `/approvals`, `/status`, `/mcp`, `/ps`
 
-**⚠️ Config Issue:** `model_reasoning_effort = "xhigh"` in `~/.codex/config.toml` is invalid. Valid values: `minimal`, `low`, `medium`, `high`. Fix before using.
+**⚠️ CLI Bug:** `model_reasoning_effort = "xhigh"` in `~/.codex/config.toml` is valid for gpt-5.3-codex at the API level, but Codex CLI v0.47.0 hasn't updated its config parser to accept it yet (known issue). Temporarily set to `"high"` to unblock CLI startup, or check if a newer CLI version has landed the fix.
 
 ---
 
@@ -420,8 +420,9 @@ Produce a final audit report."
 Before starting any agent on a task:
 
 ```bash
-# 1. Fix Codex config issue
-sed -i 's/model_reasoning_effort = "xhigh"/model_reasoning_effort = "high"/' ~/.codex/config.toml
+# 1. Workaround for Codex CLI xhigh parsing bug (if CLI version < 0.48)
+# xhigh is valid for gpt-5.3-codex but CLI parser may not accept it yet
+codex --version | grep -q "0.47" && sed -i 's/model_reasoning_effort = "xhigh"/model_reasoning_effort = "high"/' ~/.codex/config.toml && echo "Temporarily set to high (xhigh not yet supported in CLI parser)"
 
 # 2. Verify all agents work
 codex --version && kimi --version && kiro-cli --version

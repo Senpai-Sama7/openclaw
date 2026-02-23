@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "nodeId": "e67620fb-6fd0-4171-8f5a-17d833ef3b27",
+  "displayName": "donovan-local",
+  "gateway": {
+    "host": "127.0.0.1",
+    "port": 18789
+  }
+}

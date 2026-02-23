@@ -185,6 +185,1397 @@
     "github-copilot": {
       "baseUrl": "https://api.individual.githubcopilot.com",
       "models": []
+    },
+    "amazon-bedrock": {
+      "baseUrl": "https://bedrock-runtime.us-east-1.amazonaws.com",
+      "api": "bedrock-converse-stream",
+      "auth": "aws-sdk",
+      "models": [
+        {
+          "id": "anthropic.claude-3-haiku-20240307-v1:0:48k",
+          "name": "Claude 3 Haiku",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-3-haiku-20240307-v1:0:200k",
+          "name": "Claude 3 Haiku",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-3-haiku-20240307-v1:0",
+          "name": "Claude 3 Haiku",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-3-5-haiku-20241022-v1:0",
+          "name": "Claude 3.5 Haiku",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-haiku-4-5-20251001-v1:0",
+          "name": "Claude Haiku 4.5",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-opus-4-1-20250805-v1:0",
+          "name": "Claude Opus 4.1",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-opus-4-5-20251101-v1:0",
+          "name": "Claude Opus 4.5",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-opus-4-6-v1",
+          "name": "Claude Opus 4.6",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-sonnet-4-20250514-v1:0",
+          "name": "Claude Sonnet 4",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-sonnet-4-5-20250929-v1:0",
+          "name": "Claude Sonnet 4.5",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "anthropic.claude-sonnet-4-6",
+          "name": "Claude Sonnet 4.6",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "cohere.command-r-v1:0",
+          "name": "Command R",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "cohere.command-r-plus-v1:0",
+          "name": "Command R+",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "deepseek.v3.2",
+          "name": "DeepSeek V3.2",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "deepseek.r1-v1:0",
+          "name": "DeepSeek-R1",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.devstral-2-123b",
+          "name": "Devstral 2 123B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "google.gemma-3-12b-it",
+          "name": "Gemma 3 12B IT",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "google.gemma-3-27b-it",
+          "name": "Gemma 3 27B PT",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "google.gemma-3-4b-it",
+          "name": "Gemma 3 4B IT",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "zai.glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "zai.glm-4.7-flash",
+          "name": "GLM 4.7 Flash",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "openai.gpt-oss-safeguard-120b",
+          "name": "GPT OSS Safeguard 120B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "openai.gpt-oss-safeguard-20b",
+          "name": "GPT OSS Safeguard 20B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "openai.gpt-oss-120b-1:0",
+          "name": "gpt-oss-120b",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "openai.gpt-oss-20b-1:0",
+          "name": "gpt-oss-20b",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "ai21.jamba-1-5-large-v1:0",
+          "name": "Jamba 1.5 Large",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "ai21.jamba-1-5-mini-v1:0",
+          "name": "Jamba 1.5 Mini",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "moonshot.kimi-k2-thinking",
+          "name": "Kimi K2 Thinking",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "moonshotai.kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-70b-instruct-v1:0",
+          "name": "Llama 3 70B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-8b-instruct-v1:0",
+          "name": "Llama 3 8B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-1-70b-instruct-v1:0",
+          "name": "Llama 3.1 70B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-1-8b-instruct-v1:0",
+          "name": "Llama 3.1 8B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-2-11b-instruct-v1:0",
+          "name": "Llama 3.2 11B Instruct",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-2-1b-instruct-v1:0",
+          "name": "Llama 3.2 1B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-2-3b-instruct-v1:0",
+          "name": "Llama 3.2 3B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-2-90b-instruct-v1:0",
+          "name": "Llama 3.2 90B Instruct",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama3-3-70b-instruct-v1:0",
+          "name": "Llama 3.3 70B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama4-maverick-17b-instruct-v1:0",
+          "name": "Llama 4 Maverick 17B Instruct",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "meta.llama4-scout-17b-instruct-v1:0",
+          "name": "Llama 4 Scout 17B Instruct",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.magistral-small-2509",
+          "name": "Magistral Small 2509",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "minimax.minimax-m2",
+          "name": "MiniMax M2",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "minimax.minimax-m2.1",
+          "name": "MiniMax M2.1",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.ministral-3-14b-instruct",
+          "name": "Ministral 14B 3.0",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.ministral-3-8b-instruct",
+          "name": "Ministral 3 8B",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.ministral-3-3b-instruct",
+          "name": "Ministral 3B",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.mistral-7b-instruct-v0:2",
+          "name": "Mistral 7B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.mistral-large-2402-v1:0",
+          "name": "Mistral Large (24.02)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.mistral-large-3-675b-instruct",
+          "name": "Mistral Large 3",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.mistral-small-2402-v1:0",
+          "name": "Mistral Small (24.02)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.mixtral-8x7b-instruct-v0:1",
+          "name": "Mixtral 8x7B Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "nvidia.nemotron-nano-3-30b",
+          "name": "Nemotron Nano 3 30B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-2-lite-v1:0",
+          "name": "Nova 2 Lite",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-2-lite-v1:0:256k",
+          "name": "Nova 2 Lite",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-2-sonic-v1:0",
+          "name": "Nova 2 Sonic",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-lite-v1:0:24k",
+          "name": "Nova Lite",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-lite-v1:0:300k",
+          "name": "Nova Lite",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-lite-v1:0",
+          "name": "Nova Lite",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-micro-v1:0:24k",
+          "name": "Nova Micro",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-micro-v1:0:128k",
+          "name": "Nova Micro",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-micro-v1:0",
+          "name": "Nova Micro",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-premier-v1:0:8k",
+          "name": "Nova Premier",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-premier-v1:0:20k",
+          "name": "Nova Premier",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-premier-v1:0:1000k",
+          "name": "Nova Premier",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-premier-v1:0:mm",
+          "name": "Nova Premier",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-premier-v1:0",
+          "name": "Nova Premier",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-pro-v1:0",
+          "name": "Nova Pro",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-pro-v1:0:24k",
+          "name": "Nova Pro",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-pro-v1:0:300k",
+          "name": "Nova Pro",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.nova-sonic-v1:0",
+          "name": "Nova Sonic",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "nvidia.nemotron-nano-12b-v2",
+          "name": "NVIDIA Nemotron Nano 12B v2 VL BF16",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "nvidia.nemotron-nano-9b-v2",
+          "name": "NVIDIA Nemotron Nano 9B v2",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "writer.palmyra-x4-v1:0",
+          "name": "Palmyra X4",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "writer.palmyra-x5-v1:0",
+          "name": "Palmyra X5",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "twelvelabs.pegasus-1-2-v1:0",
+          "name": "Pegasus v1.2",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.pixtral-large-2502-v1:0",
+          "name": "Pixtral Large (25.02)",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "qwen.qwen3-32b-v1:0",
+          "name": "Qwen3 32B (dense)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "qwen.qwen3-coder-next",
+          "name": "Qwen3 Coder Next",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "qwen.qwen3-next-80b-a3b",
+          "name": "Qwen3 Next 80B A3B",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "qwen.qwen3-vl-235b-a22b",
+          "name": "Qwen3 VL 235B A22B",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "qwen.qwen3-coder-30b-a3b-v1:0",
+          "name": "Qwen3-Coder-30B-A3B-Instruct",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "amazon.titan-tg1-large",
+          "name": "Titan Text Large",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.voxtral-mini-3b-2507",
+          "name": "Voxtral Mini 3B 2507",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral.voxtral-small-24b-2507",
+          "name": "Voxtral Small 24B 2507",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32000,
+          "maxTokens": 4096
+        }
+      ],
+      "apiKey": "AWS_ACCESS_KEY_ID"
     }
   }
 }

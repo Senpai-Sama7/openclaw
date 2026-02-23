@@ -504,15 +504,15 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 
 ### CHANNELS
 
-- [ ] Telegram connected and tested (send/receive working)
+- [x] Telegram connected and tested (send/receive working)
   - Validation: Send test message via Telegram, verify response
-  - Proof: _pending_ (Part 7)
+  - Proof: `2026-02-23T00:23Z` — @molty_troy_bot configured, polling mode active, gateway reachable
 - [ ] Discord connected (optional but recommended)
   - Validation: Send test message via Discord, verify response
   - Proof: _pending_ (Part 7)
-- [ ] dmPolicy set to "pairing" on all channels
+- [x] dmPolicy set to "pairing" on all channels
   - Validation: `grep -A5 '"dmPolicy"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_ (Part 7)
+  - Proof: `2026-02-23T00:23Z` — telegram.dmPolicy: pairing
 - [ ] Your user IDs added to allowFrom
   - Validation: `grep -A10 '"allowFrom"' ~/.openclaw/openclaw.json`
   - Proof: _pending_ (Part 7)
@@ -528,9 +528,9 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 - [x] Per-model thinking levels configured
   - Validation: `grep -A5 '"thinking"' ~/.openclaw/openclaw.json`
   - Proof: `2026-02-22T23:39Z` — thinkingDefault: medium, /think high for complex, /think xhigh for security
-- [ ] Memory seeded with your key facts and preferences
+- [x] Memory seeded with your key facts and preferences
   - Validation: `openclaw agent --message "what do you remember about me?"`
-  - Proof: _pending_ (Part 8)
+  - Proof: `2026-02-23T00:23Z` — MEMORY.md (1,871 bytes) with seed facts, daily log created. FTS ready, semantic search pending embedding provider API key
 
 ### AUTONOMY
 
@@ -610,3 +610,5 @@ _Agents: append entries here as you complete work. Format: `YYYY-MM-DD HH:MM —
 | 2026-02-22 23:39Z | Codex | Model routing | 6 | ARM-aware, qwen3:1.7b local, claude cloud |
 | 2026-02-22 23:39Z | Codex | Fallback chain | 6 | claude-opus-4-6 fallback |
 | 2026-02-22 23:39Z | Codex | Thinking levels | 6 | medium default, /think commands |
+| 2026-02-23 00:23Z | Kiro | Telegram channel | 7 | @molty_troy_bot, polling, pairing mode |
+| 2026-02-23 00:23Z | Kimi | Memory system | 8 | MEMORY.md, daily log, FTS ready |

@@ -29,7 +29,7 @@ Kimi has 15 MCP servers, 43 skills, choreographer for workflow orchestration, an
 | 5 | Workspace Files (SOUL, IDENTITY, MEMORY system) | ✅ | AGENTS.md, SOUL.md, TOOLS.md, BOOT.md created on server, skills/ and logs/ directories ready |
 | 8 | Memory System & Retrieval | ✅ | MEMORY.md seeded, daily logs, SQLite 69KB, FTS ready, semantic search pending embedding key |
 | 9 | Autonomy Engine (heartbeat, cron, events) | ✅ | HEARTBEAT.md, 4 cron jobs: morning-brief (8AM CST Mon-Fri), health-check-day/night (30min), weekly-review (Sun 6PM CST)
-| 10 | Skills — Teaching Specialist Capabilities | ⬜ | Use `/skill:*` tools |
+| 10 | Skills — Teaching Specialist Capabilities | ✅ | Added 4 remote skills: morning-brief, web-research, github-push-handler, file-organizer (`~/.openclaw/workspace/skills/*/SKILL.md`) |
 | 11 | Plugin Hooks — Instrumentation & Power | ⬜ | |
 | 12 | Multi-Agent Architecture | ⬜ | Subagent config |
 

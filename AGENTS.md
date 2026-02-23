@@ -513,9 +513,9 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 - [x] dmPolicy set to "pairing" on all channels
   - Validation: `grep -A5 '"dmPolicy"' ~/.openclaw/openclaw.json`
   - Proof: `2026-02-23T00:23Z` — telegram.dmPolicy: pairing
-- [ ] Your user IDs added to allowFrom
+- [x] Your user IDs added to allowFrom
   - Validation: `grep -A10 '"allowFrom"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_ (Part 7)
+  - Proof: `2026-02-23T00:29Z` — tg:6202337294 in telegram.allowFrom
 
 ### INTELLIGENCE
 

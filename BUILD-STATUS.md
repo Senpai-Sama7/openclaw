@@ -31,7 +31,7 @@ Kimi has 15 MCP servers, 43 skills, choreographer for workflow orchestration, an
 | 9 | Autonomy Engine (heartbeat, cron, events) | ✅ | HEARTBEAT.md, 4 cron jobs: morning-brief (8AM CST Mon-Fri), health-check-day/night (30min), weekly-review (Sun 6PM CST)
 | 10 | Skills — Teaching Specialist Capabilities | ✅ | Added 4 remote skills: morning-brief, web-research, github-push-handler, file-organizer (`~/.openclaw/workspace/skills/*/SKILL.md`) |
 | 11 | Plugin Hooks — Instrumentation & Power | ✅ | interaction-logger plugin deployed on server; logs llm_output + tool usage to SQLite (`~/.openclaw/plugins/interaction-logger/interactions.db`); plugin path enabled in `plugins.load.paths` |
-| 12 | Multi-Agent Architecture | ⬜ | Subagent config |
+| 12 | Multi-Agent Architecture | ✅ | Configured on server with `agents.list` (main/deep/coder/monitor), Telegram→main binding, and subagents limits (8/2/5); `agents.named/routing` unsupported in v2026.2.21-2 so equivalent schema used |
 
 ### 🏗️ Kiro — `kiro/infra` branch
 **Focus: Cloud infrastructure, networking, config validation**
@@ -61,7 +61,7 @@ Kiro has AWS CLI integration, infrastructure expertise, and config analysis. Bes
 
 - **Total parts:** 18 (Part 0-18, Part 0 is reference only)
 - **Codex:** 3/6 complete
-- **Kimi:** 5/6 complete
+- **Kimi:** 6/6 complete
 - **Kiro:** 3/6 complete
 
 ## How to Update

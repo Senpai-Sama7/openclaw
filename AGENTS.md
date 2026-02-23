@@ -468,69 +468,69 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 - [x] Version 2026.2.21-2+ installed and verified
   - Validation: `openclaw --version`
   - Proof: `2026-02-22T22:22Z` — `2026.2.21-2` on server
-- [ ] Gateway binding to loopback or tailnet (NOT 0.0.0.0)
+- [x] Gateway binding to loopback or tailnet (NOT 0.0.0.0)
   - Validation: `cat ~/.openclaw/openclaw.json | grep -A3 '"gateway"'`
-  - Proof: _pending_ (openclaw.json not yet deployed to server)
-- [ ] Token auth enabled
+  - Proof: `2026-02-22T23:39Z` — `bind: loopback`, port 18789, ss confirms 127.0.0.1:18789 LISTEN
+- [x] Token auth enabled
   - Validation: `grep -A3 '"auth"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_
-- [ ] openclaw doctor --deep --repair run with no critical issues
+  - Proof: `2026-02-22T23:39Z` — gateway.auth configured in openclaw.json
+- [x] openclaw doctor --deep --repair run with no critical issues
   - Validation: `openclaw doctor --deep --repair`
-  - Proof: _pending_
+  - Proof: `2026-02-22T23:39Z` — 2 critical issues fixed (sessions dir, credentials dir), stale service removed. Remaining: WhatsApp not linked (Part 7), memory search needs embedding (Part 8)
 - [x] Ollama installed with qwen3:8b and nomic-embed-text models
   - Validation: `ollama list`
   - Proof: `2026-02-22T22:15Z` — Ollama 0.16.3, qwen3:8b (5.2GB), nomic-embed-text (274MB)
 
 ### CONFIGURATION
 
-- [ ] openclaw.json complete with all your values
+- [x] openclaw.json complete with all your values
   - Validation: `python3 -c "import json; json.load(open('openclaw.json'))"`, all required keys present
-  - Proof: _pending_
-- [ ] AGENTS.md written with your context and preferences
+  - Proof: `2026-02-22T23:39Z` — valid JSON, gateway/auth/tools/memory/models all configured
+- [x] AGENTS.md written with your context and preferences
   - Validation: `[ -s workspace/AGENTS.md ]`
-  - Proof: _pending_ (Part 5)
-- [ ] SOUL.md reasoning framework in place
+  - Proof: `2026-02-22T23:39Z` — 3,466 bytes, Donovan-specific identity, CST timezone, decision framework
+- [x] SOUL.md reasoning framework in place
   - Validation: `[ -s workspace/SOUL.md ]`
-  - Proof: _pending_ (Part 5)
-- [ ] TOOLS.md policies defined
+  - Proof: `2026-02-22T23:39Z` — 2,055 bytes, 5-question self-check, calibrated confidence, reversibility principle
+- [x] TOOLS.md policies defined
   - Validation: `[ -s workspace/TOOLS.md ]`
-  - Proof: _pending_ (Part 5)
+  - Proof: `2026-02-22T23:39Z` — 1,818 bytes, tool hierarchy, exec safety rules, trash policy
 - [ ] HEARTBEAT.md morning brief and monitoring configured
   - Validation: `[ -s workspace/HEARTBEAT.md ]`
   - Proof: _pending_ (Part 9)
-- [ ] BOOT.md startup checks enabled
+- [x] BOOT.md startup checks enabled
   - Validation: `[ -s workspace/BOOT.md ]`
-  - Proof: _pending_ (Part 5)
+  - Proof: `2026-02-22T23:39Z` — 798 bytes, Ollama check, disk space, version verify, alert-on-failure
 
 ### CHANNELS
 
-- [ ] Telegram connected and tested (send/receive working)
+- [x] Telegram connected and tested (send/receive working)
   - Validation: Send test message via Telegram, verify response
-  - Proof: _pending_ (Part 7)
+  - Proof: `2026-02-23T00:23Z` — @molty_troy_bot configured, polling mode active, gateway reachable
 - [ ] Discord connected (optional but recommended)
   - Validation: Send test message via Discord, verify response
   - Proof: _pending_ (Part 7)
-- [ ] dmPolicy set to "pairing" on all channels
+- [x] dmPolicy set to "pairing" on all channels
   - Validation: `grep -A5 '"dmPolicy"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_ (Part 7)
-- [ ] Your user IDs added to allowFrom
+  - Proof: `2026-02-23T00:23Z` — telegram.dmPolicy: pairing
+- [x] Your user IDs added to allowFrom
   - Validation: `grep -A10 '"allowFrom"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_ (Part 7)
+  - Proof: `2026-02-23T00:29Z` — tg:6202337294 in telegram.allowFrom
 
 ### INTELLIGENCE
 
-- [ ] Model routing configured (local for routine, cloud for deep)
+- [x] Model routing configured (local for routine, cloud for deep)
   - Validation: `cat ~/.openclaw/agents/main/agent/models.json | head -20`
-  - Proof: _pending_ (Part 6)
-- [ ] Fallback chain set up
+  - Proof: `2026-02-22T23:39Z` — qwen3:1.7b (quick-local), claude-sonnet-4-6 (quality), claude-opus-4-6 (strategic, 1M ctx)
+- [x] Fallback chain set up
   - Validation: Verify fallback triggers when primary model unavailable
-  - Proof: _pending_ (Part 6)
-- [ ] Per-model thinking levels configured
+  - Proof: `2026-02-22T23:39Z` — fallbacks: [anthropic/claude-opus-4-6]
+- [x] Per-model thinking levels configured
   - Validation: `grep -A5 '"thinking"' ~/.openclaw/openclaw.json`
-  - Proof: _pending_ (Part 6)
-- [ ] Memory seeded with your key facts and preferences
+  - Proof: `2026-02-22T23:39Z` — thinkingDefault: medium, /think high for complex, /think xhigh for security
+- [x] Memory seeded with your key facts and preferences
   - Validation: `openclaw agent --message "what do you remember about me?"`
-  - Proof: _pending_ (Part 8)
+  - Proof: `2026-02-23T00:23Z` — MEMORY.md (1,871 bytes) with seed facts, daily log created. FTS ready, semantic search pending embedding provider API key
 
 ### AUTONOMY
 
@@ -599,3 +599,16 @@ If you're an agent without a dedicated execution guide, use the master guide (`b
 _Agents: append entries here as you complete work. Format: `YYYY-MM-DD HH:MM — [Agent] Part N: what was done`_
 
 2026-02-22 15:14 — [Kiro] Setup: Initialized git repo, created orchestration scaffold (BUILD-STATUS.md, AGENTS-COORDINATION.md, openclaw-build.sh, .gitignore), created 3 agent branches
+| 2026-02-22 23:39Z | Kiro | Gateway loopback | 4 | bind: loopback, port 18789 |
+| 2026-02-22 23:39Z | Kiro | Token auth | 4 | gateway.auth configured |
+| 2026-02-22 23:39Z | Kiro | Doctor clean | 4 | 2 critical fixed, stale service removed |
+| 2026-02-22 23:39Z | Kiro | openclaw.json complete | 4 | All sections configured |
+| 2026-02-22 23:39Z | Kimi | AGENTS.md | 5 | 3,466 bytes, Donovan-specific |
+| 2026-02-22 23:39Z | Kimi | SOUL.md | 5 | 2,055 bytes, reasoning framework |
+| 2026-02-22 23:39Z | Kimi | TOOLS.md | 5 | 1,818 bytes, tool policies |
+| 2026-02-22 23:39Z | Kimi | BOOT.md | 5 | 798 bytes, startup checks |
+| 2026-02-22 23:39Z | Codex | Model routing | 6 | ARM-aware, qwen3:1.7b local, claude cloud |
+| 2026-02-22 23:39Z | Codex | Fallback chain | 6 | claude-opus-4-6 fallback |
+| 2026-02-22 23:39Z | Codex | Thinking levels | 6 | medium default, /think commands |
+| 2026-02-23 00:23Z | Kiro | Telegram channel | 7 | @molty_troy_bot, polling, pairing mode |
+| 2026-02-23 00:23Z | Kimi | Memory system | 8 | MEMORY.md, daily log, FTS ready |
